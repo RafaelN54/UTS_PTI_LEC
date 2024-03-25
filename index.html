@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data Mahasiswa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="position: relative; min-height: 100vh;">
+    <div class="header bg-dark text-white py-3 px-4">
+        <h1 class="m-0"> <img src="image/logo.png" alt="Header Image" class="header-image">Data Mahasiswa</h1>
+        <div class="clock" id="clock"></div>
+    </div>
+    <div class="welcome-message" id="userNameDisplay">Welcome, User!
+    </div>
+
+    <div class="running-text">
+        <strong><p>Halo!! Selamat datang di XIOMAY. Terima Kasih sudah menggunakan layanan kami!!</p></strong>
+    </div>
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <div class="col-md-6 col-sm-12">
+                <label for="show">Show:</label>
+                <select id="show" class="form-control" onchange="changePerPage()">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+            <div class="col-md-6 col-sm-12 text-md-end">
+                <button class="dark-mode-button" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn btn-secondary btn-action" onclick="sortData('nim')">Sort by NIM</button>
+                <button class="btn btn-secondary btn-action" onclick="sortData('nama')">Sort by Nama</button>
+                <button class="btn btn-secondary btn-action" onclick="sortData('alamat')">Sort by Alamat</button>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>NIM</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Pengaturan</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelData">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4 col-sm-12 text-md-start mb-md-0 mb-2 d-flex align-items-center">
+                <button class="btn btn-primary btn-action me-2" onclick="previousPage()">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <div id="paginationButtons" class="pagination d-flex align-items-center"></div>
+                <button class="btn btn-primary btn-action ms-2" onclick="nextPage()">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="col-md-8 col-sm-12 text-md-end">
+                <p id="dataInfo" class="mt-2 mb-0"></p>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12 mt-3">
+                <strong><p class="fs-1">Tambah Data</p></strong>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="nim">NIM:</label>
+                <input type="text" id="nim" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="alamat">Alamat:</label>
+                <input type="text" id="alamat" class="form-control">
+            </div>
+            <div class="col-md-12 mt-3">
+                <button class="btn btn-primary btn-action" onclick="tambahData()"><i class="fas fa-plus"></i> Tambah Data</button>
+            </div>
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Data Mahasiswa</h5>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="indexEdit">
+                        <div class="form-group">
+                            <label for="nimEdit">NIM:</label>
+                            <input type="text" id="nimEdit" class="form-control" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="namaEdit">Nama:</label>
+                            <input type="text" id="namaEdit" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="alamatEdit">Alamat:</label>
+                            <input type="text" id="alamatEdit" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-action" data-dismiss="modal" onclick="tutupModal()"><i class="fas fa-times"></i> Close</button>
+                        <button type="button" class="btn btn-primary btn-action" onclick="simpanEdit()"><i class="fas fa-save"></i> Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-danger btn-action" onclick="resetData()"> <i class="fas fa-undo"></i> Reset</button>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-light py-3" id="footer" style="animation: fadeInUp 1s ease-out;">
+        <div class="container text-center">
+            <p class="font-italic text-white mb-0">&copy; 2024 Xiomay. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
