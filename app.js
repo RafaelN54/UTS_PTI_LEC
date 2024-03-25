@@ -3,6 +3,8 @@ function toggleDarkMode() {
     body.classList.toggle('dark-mode');
 }
 
+
+
 $(document).ready(function () {
 
 function promptForUsername() {
@@ -250,6 +252,8 @@ function nextPage() {
         tampilkanData();
     }
 }
+
+
 
 window.onload = function () {
     tampilkanData();

@@ -262,6 +262,10 @@ color: #343a40;
     transform: scale(1.1);
 }
 
+.dark-mode ::placeholder {
+    color:  rgb(196, 196, 196) ; /* Adjust the color as needed */
+}
+
 @media (max-width: 768px) {
 
     h1{
