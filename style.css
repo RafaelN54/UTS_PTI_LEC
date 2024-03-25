@@ -77,6 +77,10 @@
   transition: background-color 0.3s;
 }
 
+.swal2-input {
+  text-align: center;
+}
+
 .button.edit:hover,
 .button.hapus:hover {
   filter: brightness(90%);
@@ -89,100 +93,115 @@
 .close {
   font-size: 30px;
 }
+  .btnpage{
 
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.form-group {
+    margin-bottom: 2%;
+}
+
+.form-control {
+    max-width: 500px;
+}
+
+.form-group input[type="text"] {
+    text-align: left;
+}
 .dark-mode-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #343a40;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  line-height: 50px;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.5s, color 0.5s; 
-  z-index: 999;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #343a40;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.5s, color 0.5s; 
+    z-index: 1000; 
 }
 
 .dark-mode-button:hover {
-  background-color: #555;
+    background-color: #555;
 }
 
 .dark-mode {
-  background: linear-gradient(to top, #333333, #000000);
-  color: #fff;
+    background: linear-gradient(to top, #222831, #31363F);
+    color: #fff;
 }
 
 .dark-mode  .table thead tr th{
-  background-color: rgb(0, 0, 0);
-  border: 1px solid #494949f1;
-  color: #fff;
+    background-color: #1b2027;
+    border: 1px solid #31363F;
+    color: #fff;
 }
 
 .dark-mode  .table tbody tr td{
-  background-color: rgb(0, 0, 0);
-  border: 1px solid #494949f1;
-  color: white;
+    background-color: #1b2027;
+    border: 1px solid #31363F;
+    color: white;
 }
 
 .dark-mode .table th,
 .dark-mode .table td {
-  border-color: #49494936;
+    border-color:  #31363F;
 }
 
 .dark-mode .header {
-  background-color: #222 !important;
+    background-color:  #1b2027!important;
 }
 .dark-mode .running-text {
-  color: #ff6666;
+    color: #ff6666;
 }
 .dark-mode .welcome-message {
-  background: #4d4d4d;
-  color: #fff;
+    background: #31363F; 
+    color: #fff; 
 }
 .dark-mode .table th, .dark-mode .table td {
-  border-color: #49494936;
+    border-color: #49494936;
 }
 .dark-mode .form-control {
-  background-color: #333;
-  color: #fff;
+    background-color: #333;
+    color: #fff;
 }
 .dark-mode .btn-action {
-  background-color: #343a40;
-  color: #fff;
+    background-color: #343a40;
+    color: #fff;
 }
 .dark-mode .clock {
-  background-color: #222;
-  color: #fff;
+    background-color: #222;
+    color: #fff;
 }
 .dark-mode .footer {
-  background-color: #222;
-  color: #fff;
+    background-color: #222;
+    color: #fff;
 }
 
 .header-image {
-  max-width: 50px;
+    max-width: 50px;
 }
 body {
-  background: linear-gradient(to right, #fff2ab, #F5F5DC);
-  position: relative;
-  min-height: 100vh;
-  transition: background-color 0.5s, color 0.5s; 
+    background: linear-gradient(to right, #fff2ab, #F5F5DC);
+    position: relative;
+    min-height: 100vh;
+    transition: background-color 0.5s, color 0.5s; 
 }
 
 .header {
-  background-color: #343a40 !important;
+    background-color: #343a40 !important;
 }
 
 .running-text{
-  color: rgb(236, 32, 32);
-  text-align: center;
-  align-content: center;
+    color: rgb(236, 32, 32);
+    text-align: center;
+    align-content: center;
 
 }
 .welcome-message {
@@ -197,109 +216,104 @@ color: #343a40;
 }
 
 @keyframes slideDown {
-  from {
-      opacity: 0;
-      transform: translateY(-20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .table th, .table td {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 .table{
-  width:100%;
-  border-collapse: collapse;
+    width:100%;
+    border-collapse: collapse;
 }
 
 .table thead tr th{
-  background-color: rgb(196, 196, 196);
-  border: 1px solid #49494936;
+    background-color: rgb(196, 196, 196);
+    border: 1px solid #49494936;
 }
 
 .table tbody tr td{
-  border: 1px solid #49494936;
+    border: 1px solid #49494936;
 }
 
 .form-group {
-  margin-bottom: 2%;
+    margin-bottom: 2%;
 }
 
 .btn-action {
-  font-size: 14px;
-  border-radius: 4px;
-  transition: all 0.3s ease-in-out;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
 }
 
 .btn-action:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+.table thead{
+display: none;
+}
+.table, .table tbody, .table tr, .table td{
+display: block;
+width: 100%;
+}
+.table, .table #bawahan{
+margin-bottom: 20px;
+}
+.table tbody tr td{
+text-align: right;
+padding-left: 50%;
+position: relative;
+}
+
+.table td:before{
+content: attr(data-label);
+position: absolute;
+left: 0;
+width: 50%;
+padding-left: 15px;
+font-weight: 700;
+font-size: 14px;
+text-align: left;
+}
+.modal-dialog {
+max-width: 95%;
 }
 
 .edit-delete-container {
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
+text-align: right;
 }
 
-
-@media (max-width: 768px) {
-  .table thead{
-      display: none;
-  }
-  .table, .table tbody, .table tr, .table td{
-      display: block;
-      width: 100%;
-  }
-  .table tbody tr td{
-      text-align: right;
-      padding-left: 50%;
-      position: relative;
-  }
-
-  .edit-delete-container {
-   flex-direction: row;
-  }
-  .edit-delete-container .btn {
-      margin: 0 5px;
-  }
-
-  .table tbody tr td .edit-delete-buttons {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.table tbody tr td .edit-delete-buttons .btn {
-  margin: 0 5px;
+.edit-delete-container button {
+margin-bottom: 5px;
 }
 
-  .table td:before{
-      content: attr(data-label);
-      position: absolute;
-      left: 0;
-      width: 50%;
-      padding-left: 15px;
-      font-weight: 700;
-      font-size: 14px;
-      text-align: left;
-  }
-  .modal-dialog {
-      max-width: 95%;
-  }
-  .edit-delete-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-  }
+#show {
+margin-bottom: 10px;
+}
+
+#sorting {
+text-align: center;
+}
 }
 .clock {
-  font-family: 'Arial', sans-serif;
-  font-size: 2em;
-  color: #fff;
-  background-color: #343a40;
-  padding: 10px;
-  border-radius: 5px;
+    font-family: 'Arial', sans-serif; 
+    font-size: 2em;
+    color: #fff;
+    background-color: #343a40;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#show {
+width: 50px;
 }

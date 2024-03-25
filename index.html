@@ -16,15 +16,17 @@
         <h1 class="m-0"> <img src="image/logo.png" alt="Header Image" class="header-image">Data Mahasiswa</h1>
         <div class="clock" id="clock"></div>
     </div>
+
     <div class="welcome-message" id="userNameDisplay">Welcome, User!
     </div>
 
     <div class="running-text">
         <strong><p>Halo!! Selamat datang di XIOMAY. Terima Kasih sudah menggunakan layanan kami!!</p></strong>
     </div>
+    
     <div class="container mt-4">
         <div class="row mb-3">
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6 col-sm-12" id="buatshow">
                 <label for="show">Show:</label>
                 <select id="show" class="form-control" onchange="changePerPage()">
                     <option value="5">5</option>
@@ -33,10 +35,11 @@
                     <option value="20">20</option>
                 </select>
             </div>
-            <div class="col-md-6 col-sm-12 text-md-end">
-                <button class="dark-mode-button" onclick="toggleDarkMode()">
-                    <i class="fas fa-moon"></i>
-                </button>
+            <button class="dark-mode-button" onclick="toggleDarkMode()">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="col-md-6 col-sm-12 text-md-end" id="sorting">
+
                 <button class="btn btn-secondary btn-action" onclick="sortData('nim')">Sort by NIM</button>
                 <button class="btn btn-secondary btn-action" onclick="sortData('nama')">Sort by Nama</button>
                 <button class="btn btn-secondary btn-action" onclick="sortData('alamat')">Sort by Alamat</button>
@@ -71,28 +74,38 @@
                 <p id="dataInfo" class="mt-2 mb-0"></p>
             </div>
         </div>
+
         <div class="row mb-3">
             <div class="col-md-12 mt-3">
                 <strong><p class="fs-1">Tambah Data</p></strong>
             </div>
         </div>
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <label for="nim">NIM:</label>
-                <input type="text" id="nim" class="form-control">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label for="nim">NIM:</label>
+                    <input type="text" id="nim" class="form-control" placeholder="Masukkan NIM">
+                </div>
             </div>
-            <div class="col-md-6">
-                <label for="nama">Nama:</label>
-                <input type="text" id="nama" class="form-control">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label for="nama">Nama:</label>
+                    <input type="text" id="nama" class="form-control" placeholder="Masukkan Nama">
+                </div>
             </div>
-            <div class="col-md-6">
-                <label for="alamat">Alamat:</label>
-                <input type="text" id="alamat" class="form-control">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label for="alamat">Alamat:</label>
+                    <input type="text" id="alamat" class="form-control" placeholder="Masukkan Alamat">
+                </div>
             </div>
-            <div class="col-md-12 mt-3">
-                <button class="btn btn-primary btn-action" onclick="tambahData()"><i class="fas fa-plus"></i> Tambah Data</button>
+            <div class="row">
+                <div class="col-md-12 mt-3">
+                    <button class="btn btn-primary btn-action" onclick="tambahData()"><i class="fas fa-plus"></i> Tambah Data</button>
+                </div>
             </div>
         </div>
+        
         <div id="myModal" class="modal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -128,6 +141,7 @@
             </div>
         </div>
     </div>
+    
     <footer class="bg-dark text-light py-3" id="footer" style="animation: fadeInUp 1s ease-out;">
         <div class="container text-center">
             <p class="font-italic text-white mb-0">&copy; 2024 Xiomay. All rights reserved.</p>

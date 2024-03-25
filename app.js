@@ -4,6 +4,7 @@ function toggleDarkMode() {
 }
 
 $(document).ready(function () {
+
 function promptForUsername() {
 Swal.fire({
     title: 'Enter your name',
@@ -29,12 +30,12 @@ Swal.fire({
         const username = result.value;
         document.getElementById('userNameDisplay').textContent = `Welcome, ${username}!`;
     } else {
-        promptForUsername();
+        promptForUsername(); 
     }
 });
 }
 
-promptForUsername(); 
+promptForUsername();
 
 tampilkanData(); 
 });
@@ -51,9 +52,10 @@ function sortData(key) {
             return itemB.localeCompare(itemA);
         }
     });
-    sortByFirstAlphabet = !sortByFirstAlphabet;
+    sortByFirstAlphabet = !sortByFirstAlphabet; 
     tampilkanData();
 }
+
 function tampilkanData(data = dataMahasiswa) {
     let tabel = document.getElementById('tabelData');
     tabel.innerHTML = '';
@@ -65,18 +67,9 @@ function tampilkanData(data = dataMahasiswa) {
             <td data-label="NIM">${mhs.nim}</td>
             <td data-label="Nama">${mhs.nama}</td>
             <td data-label="Alamat">${mhs.alamat}</td>
-            <td class="text-center text-md-start">`; 
-
-        if (window.innerWidth < 768) {
-            baris += `<td class="text-center text-md-start">
-                <div class="edit-delete-container">
-                <button class="btn btn-primary btn-action mb-2" onclick="tampilkanModalEdit(${start + index})"><i class="fas fa-pencil-alt"></i>Edit</button>
-                <button class="btn btn-danger btn-action" onclick="hapusData(${start + index})"><i class="fas fa-eraser"></i>Hapus</button>
-            </div>`;
-        } else {
+            <td id="bawahan" class="text-center text-md-start">`; 
             baris += `<button class="btn btn-primary btn-action me-2" onclick="tampilkanModalEdit(${start + index})"><i class="fas fa-pencil-alt"></i> Edit</button>
             <button class="btn btn-danger btn-action" onclick="hapusData(${start + index})"><i class="fas fa-eraser"></i> Hapus</button>`;
-        }
 
         baris += `</td>
     </tr>`;
@@ -91,7 +84,7 @@ function tampilkanData(data = dataMahasiswa) {
     for (let i = 1; i <= Math.ceil(dataMahasiswa.length / dataPerPage); i++) {
         let button = document.createElement('button');
         button.textContent = i;
-        button.className = 'btn btn-secondary btn-action mr-1';
+        button.className = 'btnpage btn-secondary btn-action mr-1';
         button.onclick = function () {
             currentPage = i;
             tampilkanData();
@@ -111,6 +104,7 @@ function updateTime() {
 setInterval(updateTime, 1000);
 
 let dataMahasiswa = [];
+
 if (localStorage.getItem('dataMahasiswa')) {
     dataMahasiswa = JSON.parse(localStorage.getItem('dataMahasiswa'));
 }
