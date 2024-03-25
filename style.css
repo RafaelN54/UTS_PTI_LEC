@@ -65,8 +65,12 @@
   align-items: center;
 }
 
-.clock {
-  font-size: 18px;
+h1{
+    font-size: 30px;
+}
+
+#clock {
+  font-size: 20px;
 }
 
 .button {
@@ -259,6 +263,11 @@ color: #343a40;
 }
 
 @media (max-width: 768px) {
+
+    h1{
+        font-size: 20px;
+    }
+
 .table thead{
 display: none;
 }
